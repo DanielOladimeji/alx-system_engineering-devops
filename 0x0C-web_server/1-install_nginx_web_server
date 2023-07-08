@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# Install web server - Nginx
-sudo apt update
-sudo apt upgrade -y
+# Installs web server - Nginx
+
+sudo apt-get update -y
 
 # Install Nginx
-sudo apt install nginx -y
+sudo apt install -y nginx
+sudo chown -R "$USER":"$USER" /var/www/html
 
 # Configure Nginx
 echo "Hello World!" > /var/www/html/index.html
