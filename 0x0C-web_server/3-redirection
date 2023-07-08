@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Installs web server - Nginx
+# Configures web server - Nginx - to redirect
 
 sudo apt-get update -y
 
@@ -10,4 +10,4 @@ sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" | sudo tee /var/www/html/index
 sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4/ permanent;' /etc/nginx/sites-available/default
 # Start nginx service
-sudo service nginx start
+sudo service nginx restart
