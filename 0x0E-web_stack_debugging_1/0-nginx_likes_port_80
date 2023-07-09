@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 # Fixes the nginxlistening port bugs and reconfigures the nginx master process
-sudo sed -i 's/listen 8080/listen 80/g' /etc/nginx/sites-enabled/default
-sudo sed -i 's/listen \[::\]:8080/listen \[::\]:80/g' /etc/nginx/sites-enabled/default
-pgrep nginx -o > /run/nginx.pid
-sudo nginx -s reload
-echo '' > /run/nginx.pid
+
+rm /etc/nginx/sites-enabled/default
+# removes the default configuration file at  /etc/nginx/sites-enabled/default
+
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+# creates a symbolic link between /etc/nginx/sites-available/default
+# and /etc/nginx/sites-enabled/default.
+
+service nginx restart
+# restarts the Nginx service, applying the changes made to the config files.
