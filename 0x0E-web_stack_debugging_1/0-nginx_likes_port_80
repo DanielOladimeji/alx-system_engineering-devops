@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Fixes the nginxlistening port bugs and reconfigures the nginx master process
+
+rm /etc/nginx/sites-enabled/default
+# removes the default configuration file at  /etc/nginx/sites-enabled/default
+
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+# creates a symbolic link between /etc/nginx/sites-available/default
+# and /etc/nginx/sites-enabled/default.
+
+service nginx restart
+# restarts the Nginx service, applying the changes made to the config files.
