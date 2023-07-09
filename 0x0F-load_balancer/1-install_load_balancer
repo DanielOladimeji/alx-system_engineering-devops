@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# a script that install and configure HAproxy on web-02
+
+sudo apt-get -y install software-properties-common
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.5
+sudo apt-get -y update
+
+# Install HAProxy
+sudo apt-get -y install haproxy
+sudo sed -i -e '$aENABLED=1\n' /etc/default/haproxy
+sudo sed -i -e '$a\listen http-in\n\tbind :80\n\tbalance roundrobin\n\tserver 126033-web-01 174.129.84.228:80 check\n\tserver 126033-web-02 54.174.34.166:80 check\n' /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
