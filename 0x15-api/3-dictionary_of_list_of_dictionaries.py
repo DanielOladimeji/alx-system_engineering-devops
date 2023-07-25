@@ -25,7 +25,7 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com"
     users = requests.get(url + "/users/").json()
     dic = {}
-    for user_info in users:
-        dic[user_info.get("id")] = get_all_employees_todos(url, user_info.get("id"))
+    for user in users:
+        dic[user.get("id")] = get_all_employees_todos(url, user.get("id"))
     with open("todo_all_employees.json", "w") as alljsonfile:
         json.dump(dic, alljsonfile)
