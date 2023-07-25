@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Using task 0-gather_data_from_an_API.py, export data in the JSON format"""
+import json
 import requests
 import sys
 import urllib
-import json
 
 
 if __name__ == "__main__":

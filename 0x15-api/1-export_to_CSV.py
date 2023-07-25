@@ -2,10 +2,10 @@
 """
 Using script from 0-gather_data_from_an_API.py, exxport data in the CSV format
 """
+import csv
 import requests
 import sys
 import urllib
-import csv
 
 
 if __name__ == "__main__":
