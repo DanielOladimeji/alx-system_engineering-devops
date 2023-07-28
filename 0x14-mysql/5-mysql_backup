@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script that generates a MySQL dump and creates a compressed archive of it.
+# This script generates a MySQL dump and creates a compressed archive of it
 # Sets the password for the MySQL root user
 MYSQL_PASSWORD="$1"
 
